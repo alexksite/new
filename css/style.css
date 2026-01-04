@@ -114,6 +114,7 @@ header .hero p {
   color: #fff;
   cursor: pointer;
   line-height: 1;
+  display: none;
 }
 
 /* MOBILE */
