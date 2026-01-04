@@ -92,8 +92,8 @@
     e.stopPropagation();
     const isOpen = navLinks.classList.toggle("active");
     hamburger.textContent = isOpen ? "✕" : "☰";
-    log.console(isOpen);
-    log.console(hamburger.textContent);
+    console.log(isOpen);
+    console.log(hamburger.textContent);
   });
 
   navItems.forEach(link => {
