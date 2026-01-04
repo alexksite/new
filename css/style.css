@@ -121,6 +121,7 @@ header .hero p {
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    z-index: 50;
   }
 
   .nav-links {
