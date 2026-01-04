@@ -13,9 +13,9 @@
   <div class="nav-container">
     <div class="logo">Your Name</div>
 
-    <button class="hamburger" id="hamburger">
-      ☰
-    </button>
+<button class="hamburger" id="hamburger" aria-label="Menu">
+  ☰
+</button>
 
     <ul class="nav-links" id="nav-links">
       <li><a href="#home">Home</a></li>
@@ -83,22 +83,26 @@
   const navLinks = document.getElementById("nav-links");
   const navItems = navLinks.querySelectorAll("a");
 
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+  function closeMenu() {
+    navLinks.classList.remove("active");
+    hamburger.textContent = "☰";
+  }
+
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = navLinks.classList.toggle("active");
+    hamburger.textContent = isOpen ? "✕" : "☰";
   });
 
   navItems.forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
-    });
+    link.addEventListener("click", closeMenu);
   });
 
-    document.addEventListener("click", (e) => {
+  document.addEventListener("click", (e) => {
     if (!e.target.closest(".nav-container")) {
-      navLinks.classList.remove("active");
+      closeMenu();
     }
   });
-
 
 </script>
 </body>
