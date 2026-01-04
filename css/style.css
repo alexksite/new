@@ -125,7 +125,8 @@ header .hero p {
   }
 
   .nav-links {
-    position: absolute;
+    position: fixed;
+    inset: 0;
     top: 60px;
     left: 0;
     right: 0;
