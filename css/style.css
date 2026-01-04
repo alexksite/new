@@ -9,7 +9,7 @@ body {
 }
 
 nav.nav {
-  background: grey;
+  background: #0a0a0a;
   padding: 0px 0px;
   text-align: center;
 }
@@ -79,7 +79,7 @@ header .hero p {
   position: sticky;
   top: 0;
   z-index: 1100;
-  background: #0a0a0a;
+  background: grey;
 }
 
 .nav-container {
