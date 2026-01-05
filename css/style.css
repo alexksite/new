@@ -79,7 +79,7 @@ header .hero p {
   position: sticky;
   top: 0;
   z-index: 1100;
-  background: grey;
+  background: #001f3f;
 }
 
 .nav-container {
