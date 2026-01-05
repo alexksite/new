@@ -9,9 +9,10 @@ body {
 }
 
 nav.nav {
-  background: #0a0a0a;
+  background: white;
   padding: 0px 0px;
   text-align: center;
+  border-bottom: 1px solid grey;
 }
 
 nav.nav a {
