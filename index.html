@@ -375,7 +375,7 @@
         </style>
         <script>
           const buttons = document.querySelectorAll('.section-title');
-          
+          console.log(buttons);
           buttons.forEach(btn => {
             btn.addEventListener('click', () => {
               const isExpanded = btn.getAttribute('aria-expanded') === 'true';
