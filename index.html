@@ -283,6 +283,12 @@
             .services-list {
               padding-left: 20px;
               margin: 0;
+
+              /* Open*/
+              max-height: 0;
+              overflow: hidden;
+              opacity: 0;
+              transition: max-height 0.35s ease, opacity 0.3s ease;
             }
             
             .service-item {
@@ -361,9 +367,14 @@
               max-height: 300px;
               opacity: 1;
             }
+
+          .services-list.open{
+              max-height: 300px;
+              opacity: 1;          
+          }
         </style>
         <script>
-          const buttons = document.querySelectorAll('.more-info');
+          const buttons = document.querySelectorAll('.section-title');
           
           buttons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -371,8 +382,8 @@
               const details = btn.nextElementSibling;
           
               // Accordion: close all others
-              document.querySelectorAll('.details').forEach(d => d.classList.remove('open'));
-              document.querySelectorAll('.more-info').forEach(b => b.setAttribute('aria-expanded', 'false'));
+              document.querySelectorAll('.services-list').forEach(d => d.classList.remove('open'));
+              document.querySelectorAll('.section-title').forEach(b => b.setAttribute('aria-expanded', 'false'));
           
               // Toggle current
               if (!isExpanded) {
@@ -385,7 +396,7 @@
   
         
         <section class="services-section">
-          <h2 class="section-title">ZK Framework Developer</h2>
+          <h2 class="section-title" aria-expanded="false">ZK Framework Developer</h2>
         
           <ul class="services-list">
             <li class="service-item">
@@ -394,7 +405,7 @@
                 Design, implement, and maintain scalable ZK Framework applications tailored to complex business requirements.
               </p>
         
-              <button class="more-info" aria-expanded="false">
+              <button class="more-info">
                 More info <span class="arrow">→</span>
               </button>
         
@@ -445,7 +456,7 @@
         </section>
 
         <section class="services-section">
-          <h2 class="section-title">Dedicated teams &amp; end-to-end project delivery</h2>
+          <h2 class="section-title" aria-expanded="false">Dedicated teams &amp; end-to-end project delivery</h2>
         
           <p class="section-desc">
             Assemble and lead dedicated development teams to deliver enterprise IT projects from planning to production.
