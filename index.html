@@ -127,7 +127,7 @@
 
 
 
-  <style>
+  <!--style>
       .services {
         padding-left: 20px;
         font-family: Arial, sans-serif;
@@ -148,7 +148,7 @@
         line-height: 1.5;
       }
       
-      /* More info button */
+
       .more-info {
         background: none;
         border: none;
@@ -169,7 +169,7 @@
         transition: transform 0.25s ease;
       }
       
-      /* Hover animation */
+
       .more-info:hover {
         text-decoration: underline;
       }
@@ -177,13 +177,11 @@
       .more-info:hover .arrow {
         transform: translateX(4px);
       }
-      
-      /* Expanded state */
+
       .more-info[aria-expanded="true"] .arrow {
         transform: rotate(90deg);
       }
-      
-      /* Details panel */
+
       .service-details {
         max-height: 0;
         overflow: hidden;
@@ -197,8 +195,7 @@
         font-size: 14px;
         line-height: 1.5;
       }
-      
-      /* Visible details */
+
       .service-details.open {
         max-height: 300px;
         opacity: 1;
@@ -256,7 +253,232 @@
     </div>
   </li>
 </ul>
+</section-->
+
+
+
+
+
+
+
+
+
+
+
+  <style>
+      .services-section {
+        background: #fff;
+        padding: 22px 26px;
+        margin-bottom: 30px;
+        max-width: 960px;
+      }
+      
+      .section-title {
+        display: inline-block;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+      
+      /* List */
+      .services-list {
+        padding-left: 20px;
+        margin: 0;
+      }
+      
+      .service-item {
+        margin-bottom: 24px;
+      }
+      
+      .service-item strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+      
+      .service-item p {
+        margin: 0 0 6px 0;
+        line-height: 1.5;
+      }
+      
+      /* Description-only section */
+      .section-desc {
+        margin: 0 0 8px 0;
+        line-height: 1.5;
+      }
+      
+      /* More info button */
+      .more-info {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      
+        font-family: "Times New Roman", Times, serif;
+        font-style: italic;
+        font-size: 14px;
+        color: #000;
+      
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      
+      .more-info .arrow {
+        transition: transform 0.25s ease;
+      }
+      
+      /* Hover animation */
+      .more-info:hover {
+        text-decoration: underline;
+      }
+      
+      .more-info:hover .arrow {
+        transform: translateX(4px);
+      }
+      
+      /* Expanded state */
+      .more-info[aria-expanded="true"] .arrow {
+        transform: rotate(90deg);
+      }
+      
+      /* Expandable details */
+      .details {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.3s ease;
+        margin-left: 18px;
+      }
+      
+      .details p {
+        margin: 10px 0 0;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      
+      /* Open */
+      .details.open {
+        max-height: 300px;
+        opacity: 1;
+      }
+      
+      /* Responsive */
+      @media (max-width: 768px) {
+        body {
+          padding: 20px;
+        }
+      
+        .services-section {
+          padding: 18px;
+        }
+      }
+  </style>
+  <script>
+const buttons = document.querySelectorAll('.more-info');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    const details = btn.nextElementSibling;
+
+    // Accordion: close all others
+    document.querySelectorAll('.details').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.more-info').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+    // Toggle current
+    if (!isExpanded) {
+      btn.setAttribute('aria-expanded', 'true');
+      details.classList.add('open');
+    }
+  });
+});
+
+    
+  </script>
+  
+
+<section class="services-section">
+  <h2 class="section-title">ZK Framework Developer</h2>
+
+  <ul class="services-list">
+    <li class="service-item">
+      <strong>Enterprise ZK full-stack development</strong>
+      <p>
+        Design, implement, and maintain scalable ZK Framework applications tailored to complex business requirements.
+      </p>
+
+      <button class="more-info" aria-expanded="false">
+        More info <span class="arrow">→</span>
+      </button>
+
+      <div class="details">
+        <p>
+          Architecture design, MVVM/MVC implementations, reusable component libraries,
+          Keikai integration, and long-term enterprise support.
+        </p>
+      </div>
+    </li>
+
+    <li class="service-item">
+      <strong>Legacy system migration &amp; modernization</strong>
+      <p>
+        Upgrade and refactor existing ZK applications to improve performance, security, and maintainability.
+      </p>
+
+      <button class="more-info" aria-expanded="false">
+        More info <span class="arrow">→</span>
+      </button>
+
+      <div class="details">
+        <p>
+          Migration from older ZK versions, UI modernization, performance tuning,
+          risk-controlled refactoring, and phased rollouts.
+        </p>
+      </div>
+    </li>
+
+    <li class="service-item">
+      <strong>Performance &amp; user experience optimization</strong>
+      <p>
+        Identify bottlenecks and optimize both server-side and UI layers.
+      </p>
+
+      <button class="more-info" aria-expanded="false">
+        More info <span class="arrow">→</span>
+      </button>
+
+      <div class="details">
+        <p>
+          JVM profiling, ZK rendering optimization, async processing,
+          caching strategies, and UX responsiveness improvements.
+        </p>
+      </div>
+    </li>
+  </ul>
 </section>
+
+<section class="services-section">
+  <h2 class="section-title">Dedicated teams &amp; end-to-end project delivery</h2>
+
+  <p class="section-desc">
+    Assemble and lead dedicated development teams to deliver enterprise IT projects from planning to production.
+  </p>
+
+  <button class="more-info standalone" aria-expanded="false">
+    More info <span class="arrow">→</span>
+  </button>
+
+  <div class="details standalone-details">
+    <p>
+      Team formation, technical leadership, sprint planning, code reviews,
+      delivery governance, and long-term partnership models.
+    </p>
+  </div>
+</section>
+
+
+
+  
 
 <section id="portfolio" class="section">
   <h2>Selected Projects</h2>
